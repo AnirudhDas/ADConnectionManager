@@ -100,13 +100,13 @@ open class ADConnectionManager: NSObject {
                 let error = NSError(domain: "ADConnectionManager",
                  code: 501,
                  userInfo: ["Error occured in JSON Parsing": NSLocalizedDescriptionKey])
-                return Response.nserror(error)
+                return Response.error(error)
             }
         } catch {
             let error = NSError(domain: "ADConnectionManager",
                                 code: 501,
                                 userInfo: ["Error occured in JSON Parsing": NSLocalizedDescriptionKey])
-            return Response.nserror(error)
+            return Response.error(error)
         }
     }
 
@@ -134,7 +134,7 @@ open class ADConnectionManager: NSObject {
 
                 } else if let error = error {
                     ADConnectionManager.hideIndicator()
-                    return handler(Response.nserror(error))
+                    return handler(Response.error(error))
 
                 } else {
                     ADConnectionManager.hideIndicator()
