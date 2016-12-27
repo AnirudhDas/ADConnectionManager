@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ADConnectionManager"
-  s.version      = "1.0.8"
+  s.version      = "1.0.9"
   s.summary      = "A request manager component in Swift Programming Language for iOS."
 
   # This description is used to generate tags and improve search results.
@@ -26,7 +26,9 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "A request manager component in Swift Programming Language for iOS which provides URLSession related actions."
 
-   s.homepage     = "https://anirudhdas.github.io/AniruddhaDas.github.io/"
+   # s.homepage     = "https://anirudhdas.github.io/AniruddhaDas.github.io/"
+
+   s.homepage = "https://github.com/AnirudhDas/ADConnectionManager.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
