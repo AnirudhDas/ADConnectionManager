@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ADConnectionManager"
-  s.version      = "1.0.4"
+  s.version      = "1.0.5"
   s.summary      = "A request manager component in Swift Programming Language for iOS."
 
   # This description is used to generate tags and improve search results.
@@ -133,4 +133,7 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
+  s.frameworks    =   'UIKit'
+  s.dependency      'MBProgressHUD'
+  s.dependency      'KSReachability'
 end
