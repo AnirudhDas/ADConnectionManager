@@ -19,8 +19,7 @@ public enum HttpMethod: String {
 }
 
 public enum Response {
-    case error(ABError)
-    case nserror(Error)
+    case error(Error)
     case successWithData(Data)
     case successWithArray([AnyObject])
     case successWithDictionary([String: AnyObject])
