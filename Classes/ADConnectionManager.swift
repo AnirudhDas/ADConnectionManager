@@ -1,10 +1,3 @@
-//
-//  ADConnectionManager.swift
-//  HelpVMS
-//
-//  Created by Aniruddha Das on 11/22/16.
-//  Copyright © 2016 Aniruddha Das. All rights reserved.
-//
 
 // Handle WebServices Requests
 
@@ -195,24 +188,6 @@ extension ADConnectionManager {
             let _ = MBProgressHUD.hide(for: (UIApplication.shared.keyWindow)!, animated: true)
         }
     }
-
-    /*
-     //Activity Indicators
-     public class func showIndicator(viewController: UIViewController) {
-     
-     performUIUpdatesOnMain {
-     let spinnerActivity = MBProgressHUD.showAdded(to:viewController.view, animated: true)
-     spinnerActivity.isUserInteractionEnabled = false
-     }
-     }
-     
-     public class func hideIndicator(viewController: UIViewController) {
-     
-     performUIUpdatesOnMain {
-     let _ = MBProgressHUD.hide(for: viewController.view, animated: true)
-     }
-     }
-     */
 }
 
 extension ADConnectionManager {
@@ -227,7 +202,7 @@ extension ADConnectionManager {
         viewController.present(alertController, animated: true, completion: nil)
     }
 }
-/*
+
 extension ADConnectionManager {
     public class func uploadPhoto(_ request:URLRequest, image:UIImage, Handler:@escaping (Response) -> Void) -> URLSessionDataTask {
         var rqst = request
@@ -262,41 +237,6 @@ extension ADConnectionManager {
         rqst.httpBody = dataToUpload as Data
         
         return self.invokeRequestForData(rqst, handler: Handler)
-    }
-
-}
-  */
-
-// MARK: - Utility Extension for UserDefaults
-extension ADConnectionManager {
-
-    public class func saveValueForKey(_ value: AnyObject, forKey: String) -> Bool {
-        UserDefaults.standard.set(value, forKey: forKey)
-        return UserDefaults.standard.synchronize()
-    }
-
-    public class func getValueForKey(_ forKey: String) -> AnyObject? {
-        return UserDefaults.standard.value(forKey: forKey) as AnyObject?
-    }
-
-    public class func deleteValueForKey(_ forKey: String) -> Bool {
-        UserDefaults.standard.removeObject(forKey: forKey)
-        return UserDefaults.standard.synchronize()
-    }
-
-    public class func registerDefaultsFromSettingsBundle() {
-        let settingbundlepath = Bundle.main.path(forResource: "Settings", ofType: "bundle")
-        let dictionary = NSDictionary(contentsOfFile: settingbundlepath!.appending("/Root.plist"))
-        let array = (dictionary?.object(forKey: "PreferenceSpecifiers") as? NSArray)!
-        for dictinaryOfPreference in array {
-            if let d = dictinaryOfPreference as? NSDictionary {
-                let key = d.value(forKey: "Key") as? String
-                if key != nil {
-                    UserDefaults.standard.set(d.value(forKey: "DefaultValue"), forKey: key!)
-                    UserDefaults.standard.synchronize()
-                }
-            }
-        }
     }
 
 }
