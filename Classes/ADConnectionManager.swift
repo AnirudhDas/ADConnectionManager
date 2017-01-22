@@ -203,40 +203,4 @@ extension ADConnectionManager {
     }
 }
 
-extension ADConnectionManager {
-    public class func uploadPhoto(_ request:URLRequest, image:UIImage, Handler:@escaping (Response) -> Void) -> URLSessionDataTask {
-        var rqst = request
-        let imageData = UIImagePNGRepresentation(image)
-        rqst.httpMethod = "POST"
-        let boundry = "---------------------------14737809831466499882746641449"
-        let stringContentType = "multipart/form-data; boundary=\(boundry)"
-        rqst.addValue(stringContentType, forHTTPHeaderField: "Content-Type")
-        
-        let dataToUpload = NSMutableData()
-        
-        // add boundry
-        let boundryData = "\r\n--" + boundry + "\r\n"
-        dataToUpload.append(boundryData.data(using: String.Encoding.utf8)!)
-        
-        // add file name
-        let fileName = "Content-Disposition: form-data; name=\"uploadedfile\"; filename=\"abc.png\"\r\n"
-        dataToUpload.append(fileName.data(using: String.Encoding.utf8)!)
-        
-        // add content type
-        let contentType = "Content-Type: application/octet-stream\r\n\r\n"
-        dataToUpload.append(contentType.data(using: String.Encoding.utf8)!)
-        
-        // add UIImage-Data
-        dataToUpload.append(imageData!)
-        
-        // add end boundry
-        let boundryEndData = "\r\n--" + boundry + "--\r\n"
-        dataToUpload.append(boundryEndData.data(using: String.Encoding.utf8)!)
-        
-        // set HTTPBody to Request
-        rqst.httpBody = dataToUpload as Data
-        
-        return self.invokeRequestForData(rqst, handler: Handler)
-    }
 
-}
